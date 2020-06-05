@@ -23,7 +23,7 @@ class Comment extends Component {
                 <div>
                     <h4>Comments</h4>
                     <ListGroup>
-                        {this.state.comments.map(comment => <ListGroup.Item>{comment.comment}</ListGroup.Item>)}
+                        {this.props.comments.map(comment => <ListGroup.Item>{comment.comment}</ListGroup.Item>)}
                     </ListGroup>
                     <AddComment asin={this.state.book.asin}/>
                 </div>

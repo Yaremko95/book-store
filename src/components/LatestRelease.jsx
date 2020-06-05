@@ -30,11 +30,11 @@ class LatestRelease extends Component {
             comments:comments,
             showComments:true
         })
-
+        console.log(this.state.selectedBook, this.state.comments)
 
     }
     render() {
-        console.log(this.state.books)
+
         return (
 
            <Container fluid >
