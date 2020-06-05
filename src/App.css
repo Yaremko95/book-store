@@ -1,0 +1,23 @@
+.footer .logo{
+    color: whitesmoke;
+    font-size: 1.6rem;
+}
+.footer li {
+    list-style-type: none;
+}
+.footer a{
+    color: whitesmoke;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.jumbotron {
+    height: 50vh;
+    /*background-size: cover;*/
+    background-repeat: no-repeat;
+
+    background-position:center;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://cdn.waterstones.com/images/00155009-1920x533.jpeg');;
+    color: whitesmoke;
+}
