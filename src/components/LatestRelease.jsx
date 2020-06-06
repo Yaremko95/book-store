@@ -4,6 +4,7 @@ import bookList from "../data/fantasy.json";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Comment from "./Comment";
+import {Link} from "react-router-dom";
 
 class LatestRelease extends Component {
     constructor(props) {
@@ -37,16 +38,17 @@ class LatestRelease extends Component {
 
         return (
 
-           <Container fluid >
+           <Container  >
                <h2 className="text-center">Lates Release</h2>
-               <Row>
 
-                   <Col lg={8}>
                        <Row className="row-cols-1 row-cols-md-3 row-cols-lg-5">
                            {this.state.books.slice(0,15).map(book => {
                                return (
                                    <Col  className="mb-3" key={book.asin}>
-                                       <Image src={book.img} thumbnail  style={{height:"18rem", objectFit: "cover"}} onClick={()=>this.handleComments(book)}/>
+                                       <Link to={`/book/${book.asin}`}>
+                                           <Image src={book.img} thumbnail  style={{height:"18rem", objectFit: "cover"}} onClick={()=>this.handleComments(book)}/>
+                                       </Link>
+
                                        <div className="w-100 d-flex justify-content-center " >
                                            <span style={{color: "#9e866b"}} className="text-center">{book.title}</span>
                                        </div>
@@ -55,17 +57,6 @@ class LatestRelease extends Component {
                              })
                            }
                        </Row>
-                   </Col>
-                   <Col lg={4}>
-                       {this.state.showComments && <Comment book={this.state.selectedBook} comments={this.state.comments}/> }
-                   </Col>
-               </Row>
-
-
-
-
-
-
            </Container>
         );
     }

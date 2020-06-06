@@ -5,6 +5,10 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import {Link} from 'react-router-dom'
+import {LinkContainer} from 'react-router-bootstrap'
+
+
 
 class NavBar extends Component {
     render() {
@@ -13,9 +17,17 @@ class NavBar extends Component {
                 <Container>
                     <Navbar.Brand href="#home">{this.props.title}</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="#">Home</Nav.Link>
-                        <Nav.Link href="#">About</Nav.Link>
-                        <Nav.Link href="#">Browse</Nav.Link>
+                        <LinkContainer to={"/"}>
+                            <Nav.Link >Home</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to={"/about"}>
+                            <Nav.Link >About</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to={"/browse"}>
+                            <Nav.Link >Browse</Nav.Link>
+                        </LinkContainer>
+
+
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

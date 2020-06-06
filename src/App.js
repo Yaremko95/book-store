@@ -1,21 +1,31 @@
-import React from 'react';
-import NavBar from "./components/NavBar";
+import React, {Component} from 'react';
+import { BrowserRouter as Router , Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
-import Footer from "./components/Footer";
-import JumbotronComponent from "./components/JumbotronComponent";
-import LatestRelease from "./components/LatestRelease";
+import  './App.css'
+
+import Home from "./pages/Home";
+import NavBar from "./components/NavBar";
+import About from "./pages/About";
+import Browse from "./pages/Browse";
+import Book from "./pages/Book";
+
+class App extends Component {
+    render() {
+        return (
+
+                <Router>
+
+                        <NavBar title={"Book Store"}/>
+                        <Route path="/" component={Home} exact/>
+                        <Route path="/about" component={About}/>
+                        <Route path="/browse" component={Browse}/>
+                        <Route path="/book/:bookId" component={Book}/>
 
 
-function App() {
-  return (
-    <>
-      <NavBar title={"Book Store"}/>
-      <JumbotronComponent title={"The Biggest And Best New Publishing Out Now "} />
-      <LatestRelease />
-      <Footer/>
-    </>
-  );
+                </Router>
+
+        );
+    }
 }
 
 export default App;
