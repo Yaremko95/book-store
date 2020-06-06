@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Row} from "react-bootstrap";
 import Comment from "./Comment";
+import AddComment from "./AddComment";
 
 class Reviews extends Component {
 
@@ -47,6 +48,8 @@ class Reviews extends Component {
                       <Comment comment={comment} fetchReviews={this.fetchReviews}/>
                       )
                   )}
+
+                  <AddComment book={book} fetchReviews={this.fetchReviews} />
 
             </>
         );

@@ -8,7 +8,7 @@ class AddComment extends Component {
         comment: {
             comment: '',
             rate: '',
-            elementId: this.props.asin,
+            elementId: this.props.book.asin,
         }
     }
 
@@ -24,12 +24,12 @@ class AddComment extends Component {
                 }
             })
             if (response.ok) {
-                alert('Comment added!')
+               this.props.fetchReviews && this.props.fetchReviews()
                 this.setState({
                     comment: {
                         comment: '',
                         rate: '',
-                        elementId: this.props.asin,
+                        elementId: this.props.book.asin,
                     }
                 })
             } else {

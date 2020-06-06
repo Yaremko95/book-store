@@ -9,7 +9,7 @@ class Comment extends Component {
         super(props);
     }
     handleDelete =async(id) => {
-       
+
         try {
             let response = await fetch(`https://striveschool.herokuapp.com/api/comments/${id}`, {
                 "method": "DELETE",
