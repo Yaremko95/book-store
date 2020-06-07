@@ -24,7 +24,9 @@ class AddComment extends Component {
                 }
             })
             if (response.ok) {
-               this.props.fetchReviews && this.props.fetchReviews()
+                const {comment} = this.state
+               this.props.setState(comment)
+               //this.props.fetchReviews && this.props.fetchReviews()
                 this.setState({
                     comment: {
                         comment: '',

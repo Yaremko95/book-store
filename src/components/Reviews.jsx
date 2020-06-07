@@ -34,7 +34,11 @@ class Reviews extends Component {
 
 
     }
-
+     updateState = (comment) =>{
+        this.setState({
+            comments: [...this.state.comments, comment]
+        })
+    }
 
     render() {
         const {book}=this.props
@@ -45,11 +49,11 @@ class Reviews extends Component {
                 <h3 className={"mt-4"}>{comments.length} Reviews</h3>
 
                   {comments.map(comment=> (
-                      <Comment comment={comment} fetchReviews={this.fetchReviews}/>
+                      <Comment comment={comment} setState={this.setState} fetchReviews={this.fetchReviews}/>
                       )
                   )}
 
-                  <AddComment book={book} fetchReviews={this.fetchReviews} />
+                  <AddComment book={book} setState={this.updateState} fetchReviews={this.fetchReviews} />
 
             </>
         );
