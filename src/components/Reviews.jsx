@@ -7,10 +7,11 @@ class Reviews extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            comments:[]
+        }
     }
-    state={
-        comments:[]
-    }
+
     componentDidMount() {
         this.fetchReviews()
     }

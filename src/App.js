@@ -3,25 +3,36 @@ import { BrowserRouter as Router , Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  './App.css'
 
-import Home from "./pages/Home";
-import NavBar from "./components/NavBar";
-import About from "./pages/About";
-import Browse from "./pages/Browse";
-import Book from "./pages/Book";
+import routes from'./route/routes'
+import {Switch} from "react-bootstrap";
+import Redirect from "react-router-dom/es/Redirect";
 
 class App extends Component {
     render() {
         return (
 
+
                 <Router>
-
-                        <NavBar title={"Book Store"}/>
-                        <Route path="/" component={Home} exact/>
-                        <Route path="/about" component={About}/>
-                        <Route path="/browse" component={Browse}/>
-                        <Route path="/book/:bookId" component={Book}/>
-
-
+                    <Switch>
+                        {routes.map((route, index)=> {
+                            return(
+                                    <Route
+                                        key={index}
+                                        path={route.path}
+                                        exact={route.exact}
+                                        render={(props)=>{
+                                            return(
+                                                <route.layout {...props}>
+                                                    <route.component {...props}/>
+                                                </route.layout>
+                                            )
+                                        }}
+                                    />
+                                 )
+                             })
+                        }
+                        <Redirect to={"/"} />
+                    </Switch>
                 </Router>
 
         );
