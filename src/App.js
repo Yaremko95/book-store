@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import  './App.css'
 
 import routes from'./route/routes'
-import {Switch} from "react-bootstrap";
+import {Switch} from "react-router-dom";
 import Redirect from "react-router-dom/es/Redirect";
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
 
 
                 <Router>
-                    <Switch>
+                    <Switch >
                         {routes.map((route, index)=> {
                             return(
                                     <Route
